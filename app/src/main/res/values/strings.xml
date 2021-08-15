@@ -4,4 +4,8 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="info">Usuarios</string>
+    <string name="reg">Registrar contacto</string>
+    <string name="car">Cargar imagen</string>
+    <string name="nm">Nombre</string>
+    <string name="nmr">Número</string>
 </resources>

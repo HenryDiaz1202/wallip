@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.Toast;
@@ -51,6 +53,14 @@ public class principal extends AppCompatActivity {
         elements.add(new listaElements("Henry","+505 58757294"));
         elements.add(new listaElements("Anielka","+505 58757294"));
 
+        elements.add(new listaElements("Aracely","+505 58757294"));
+        elements.add(new listaElements("Pedro","+505 58757294"));
+        elements.add(new listaElements("Antonia","+505 58757294"));
+
+        elements.add(new listaElements("Vanessa","+505 58757294"));
+        elements.add(new listaElements("Santos","+505 58757294"));
+        elements.add(new listaElements("Carolina","+505 58757294"));
+
         mRecyclerView = findViewById(R.id.listaRecycle);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -81,6 +91,11 @@ public class principal extends AppCompatActivity {
             contador = 0;
         }
         handler.postDelayed(runnable, 1000);
+    }
+
+    public void registrar(View view){
+        Intent i = new Intent(this, registrar.class);
+        startActivity(i);
     }
 
 }
