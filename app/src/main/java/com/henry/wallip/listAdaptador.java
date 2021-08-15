@@ -1,0 +1,80 @@
+package com.henry.wallip;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+public class listAdaptador extends RecyclerView.Adapter<listAdaptador.listAdaptadorViewHolder> {
+
+    private ArrayList<listaElements> mListe;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onPlay(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
+
+    public static class listAdaptadorViewHolder extends RecyclerView.ViewHolder{
+
+        ImageView iconosIMG;
+        CardView cvV;
+        TextView nombre,numero;
+
+        public listAdaptadorViewHolder(View itemView, final OnItemClickListener listener){
+            super(itemView);
+            iconosIMG = itemView.findViewById(R.id.iconoimg);
+
+            nombre = itemView.findViewById(R.id.palabraTXT);
+            numero = itemView.findViewById(R.id.pronTXT);
+            cvV = itemView.findViewById(R.id.cv);
+
+            cvV.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.onPlay(position);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public listAdaptador(ArrayList<listaElements> listeElements){
+        mListe = listeElements;
+    }
+
+    @Override
+    public listAdaptadorViewHolder onCreateViewHolder(ViewGroup parent, int ViewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_contactos, parent, false);
+        listAdaptadorViewHolder lsh = new listAdaptadorViewHolder(v, mListener);
+        return lsh;
+    }
+
+    @Override
+    public void onBindViewHolder(listAdaptadorViewHolder holder, int position){
+        listaElements currecntItem = mListe.get(position);
+
+        holder.nombre.setText(currecntItem.getNombre());
+        holder.numero.setText(currecntItem.getNumero());
+    }
+
+    @Override
+    public int getItemCount(){
+        return mListe.size();
+    }
+
+}
