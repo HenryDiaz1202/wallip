@@ -16,19 +16,4 @@ public class registrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
     }
-    public String nume= "84493351";
-
-    public void llamar(){
-        try {
-            startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel: "+nume)));
-        }
-        catch (Exception e){
-            Toast.makeText(getApplicationContext(), "No se puede llamar : "+e.toString(), Toast.LENGTH_LONG).show();
-        }
-    }
-
-
-    public void llamar(View view) {
-        llamar();
-    }
 }

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -24,6 +25,7 @@ public class principal extends AppCompatActivity {
 
     ImageView imagen;
     int contador = 0;
+    String numero_llamar;
 
     final ArrayList<listaElements> elements = new ArrayList<>();
 
@@ -49,17 +51,8 @@ public class principal extends AppCompatActivity {
 
         //Toast.makeText(getApplicationContext(), ""+contador, Toast.LENGTH_SHORT).show();
 
-        elements.add(new listaElements("Miguel","+505 58757294"));
-        elements.add(new listaElements("Henry","+505 58757294"));
-        elements.add(new listaElements("Anielka","+505 58757294"));
-
-        elements.add(new listaElements("Aracely","+505 58757294"));
-        elements.add(new listaElements("Pedro","+505 58757294"));
-        elements.add(new listaElements("Antonia","+505 58757294"));
-
-        elements.add(new listaElements("Vanessa","+505 58757294"));
-        elements.add(new listaElements("Santos","+505 58757294"));
-        elements.add(new listaElements("Carolina","+505 58757294"));
+        elements.add(new listaElements("Henry","58757294"));
+        elements.add(new listaElements("James","58709462"));
 
         mRecyclerView = findViewById(R.id.listaRecycle);
         mRecyclerView.setHasFixedSize(true);
@@ -73,8 +66,9 @@ public class principal extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new listAdaptador.OnItemClickListener() {
             @Override
             public void onPlay(int position) {
-                String palabra = elements.get(position).getNombre();
-                Toast.makeText(getApplicationContext(), ""+palabra, Toast.LENGTH_SHORT).show();
+                numero_llamar = elements.get(position).getNumero();
+                Toast.makeText(getApplicationContext(), ""+numero_llamar, Toast.LENGTH_SHORT).show();
+                llamar(numero_llamar);
             }
 
         });
@@ -96,6 +90,19 @@ public class principal extends AppCompatActivity {
     public void registrar(View view){
         Intent i = new Intent(this, registrar.class);
         startActivity(i);
+    }
+
+    /*public void llamar(View view) {
+        llamar();
+    }*/
+
+    public void llamar(String num){
+        try {
+            startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel: "+num)));
+        }
+        catch (Exception e){
+            Toast.makeText(getApplicationContext(), "No se puede llamar : "+e.toString(), Toast.LENGTH_LONG).show();
+        }
     }
 
 }
