@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Time;
@@ -26,6 +27,7 @@ public class principal extends AppCompatActivity {
     ImageView imagen;
     int contador = 0;
     String numero_llamar;
+    TextView cantidad;
 
     final ArrayList<listaElements> elements = new ArrayList<>();
 
@@ -53,6 +55,8 @@ public class principal extends AppCompatActivity {
 
         elements.add(new listaElements("Henry","58757294"));
         elements.add(new listaElements("James","58709462"));
+        elements.add(new listaElements("Eliezer","81388181"));
+        elements.add(new listaElements("Faruck","58726730"));
 
         mRecyclerView = findViewById(R.id.listaRecycle);
         mRecyclerView.setHasFixedSize(true);
@@ -72,6 +76,10 @@ public class principal extends AppCompatActivity {
             }
 
         });
+
+        cantidad = findViewById(R.id.idCantidad);
+        int can = elements.size();
+        cantidad.setText(""+can);
 
     }
 

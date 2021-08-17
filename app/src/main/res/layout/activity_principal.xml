@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginBottom="1dp"
-        android:background="#020D2E"
+        android:background="#E44104"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -65,13 +65,63 @@
         android:id="@+id/listaRecycle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="#EA5136"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="0dp"
+        android:layout_height="69dp"
+        android:background="#FEFEFF"
+        app:layout_constraintBottom_toTopOf="@+id/listaRecycle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="308dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="4dp"
+            android:drawableLeft="@android:drawable/ic_search_category_default"
+            android:drawableTint="#D7FF9100"
+            android:drawableTintMode="src_in"
+            android:drawingCacheQuality="high"
+            android:elegantTextHeight="false"
+            android:elevation="@android:dimen/notification_large_icon_height"
+            android:ems="10"
+            android:hint="Buscar contacto ---"
+            android:inputType="textPersonName"
+            android:lineSpacingExtra="1sp"
+            android:singleLine="false"
+            android:textColor="#10658E"
+            android:textColorHighlight="#B33838"
+            android:textColorHint="#7A7A76"
+            android:textColorLink="#615F5F"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.478" />
+
+        <TextView
+            android:id="@+id/idCantidad"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center|center_horizontal"
+            android:text="000"
+            android:textColor="#D57C0D"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
