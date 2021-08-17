@@ -28,6 +28,7 @@
             android:fontFamily="casual"
             android:gravity="center"
             android:text="@string/info"
+            android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="21sp"
             android:textStyle="bold"
@@ -65,9 +66,6 @@
         android:id="@+id/listaRecycle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
         android:background="#EA5136"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/buscar"
             android:layout_width="308dp"
             android:layout_height="46dp"
             android:layout_marginStart="4dp"
@@ -117,10 +115,10 @@
             android:gravity="center|center_horizontal"
             android:text="000"
             android:textColor="#D57C0D"
-            android:textSize="25dp"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName2"
+            app:layout_constraintStart_toEndOf="@+id/buscar"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

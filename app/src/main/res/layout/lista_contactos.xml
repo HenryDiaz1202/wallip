@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
     android:animateLayoutChanges="true"
@@ -37,6 +37,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
+                android:onClick="registrar"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
                 android:src="@drawable/user" />
@@ -55,7 +56,7 @@
 
                 <TextView
                     android:id="@+id/palabraTXT"
-                    android:layout_width="match_parent"
+                    android:layout_width="257dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
                     android:text="Codelia"
@@ -68,9 +69,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
+                    android:drawingCacheQuality="high"
                     android:text="Codelia"
                     android:textColor="#EC4009"
-                    android:textSize="24sp" />
+                    android:textCursorDrawable="@drawable/abc_vector_test"
+                    android:textSize="24sp"
+                    app:drawableEndCompat="@android:drawable/sym_action_call" />
 
             </LinearLayout>
 

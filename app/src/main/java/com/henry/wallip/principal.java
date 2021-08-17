@@ -11,7 +11,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -79,8 +83,7 @@ public class principal extends AppCompatActivity {
 
         cantidad = findViewById(R.id.idCantidad);
         int can = elements.size();
-        cantidad.setText(""+can);
-
+        cantidad.setText("Cant.\n"+can);
     }
 
     public void metodo_timmer(){
