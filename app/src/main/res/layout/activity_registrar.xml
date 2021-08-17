@@ -18,8 +18,9 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="113dp"
-            android:layout_height="59dp"
+            android:layout_width="108dp"
+            android:layout_height="72dp"
+            android:background="#AF3305"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,6 +30,7 @@
             android:id="@+id/textView3"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="#AF3305"
             android:gravity="center_vertical|fill_vertical"
             android:text="@string/reg"
             android:textSize="20sp"
@@ -55,7 +57,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="252dp">
+            android:layout_height="252dp"
+            android:background="#EC634B">
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -70,8 +73,12 @@
                 android:id="@+id/button"
                 android:layout_width="127dp"
                 android:layout_height="61dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
+                android:backgroundTint="@color/light_blue_900"
                 android:text="@string/car"
+                android:textColor="#F3EFEF"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5"
@@ -95,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:ems="10"
-                android:hint="@string/nm"
+                android:hint="Ingresar nombre"
                 android:inputType="textPersonName"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/textView5"
@@ -120,7 +127,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="12345678"
+                android:hint="Número telefónico"
                 android:inputType="number"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toTopOf="@+id/imageButton2"
@@ -134,6 +141,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:backgroundTint="@color/design_default_color_error"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton3"
                 app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
                 app:srcCompat="@android:drawable/ic_menu_delete" />
@@ -143,6 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="4dp"
+                android:backgroundTint="@color/light_blue_900"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton4"
                 app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
                 app:srcCompat="@android:drawable/ic_popup_sync" />
@@ -153,6 +162,7 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="2dp"
+                android:backgroundTint="@android:color/holo_green_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
                 app:srcCompat="@android:drawable/ic_menu_save" />
@@ -176,14 +186,13 @@
         android:id="@+id/imageButton6"
         android:layout_width="81dp"
         android:layout_height="66dp"
-        android:layout_marginTop="8dp"
         android:onClick="llamar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.033"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.298"
+        app:layout_constraintVertical_bias="0.047"
         app:srcCompat="@android:drawable/ic_menu_call" />
 
     <TextView
@@ -195,6 +204,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        app:layout_constraintVertical_bias="0.367" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
