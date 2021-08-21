@@ -102,6 +102,10 @@ public class principal extends AppCompatActivity {
         Intent i = new Intent(this, registrar.class);
         startActivity(i);
     }
+    public void editar(View view){
+        Intent i = new Intent(this, editar_contacto.class);
+        startActivity(i);
+    }
 
     /*public void llamar(View view) {
         llamar();

@@ -8,4 +8,5 @@
     <string name="car">Cargar imagen</string>
     <string name="nm">Nombre</string>
     <string name="nmr">Número</string>
+    <string name="edit">Editar contacto</string>
 </resources>
