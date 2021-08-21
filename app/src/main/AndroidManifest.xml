@@ -7,9 +7,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/contactos"
+        android:icon="@drawable/contactos400"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/contactos"
+        android:roundIcon="@drawable/contactos400"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
