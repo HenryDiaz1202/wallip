@@ -95,7 +95,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/contactosm"
+                android:id="@+id/edNombre"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
@@ -116,13 +116,13 @@
                 android:layout_marginTop="6dp"
                 android:text="@string/nmr"
                 android:textSize="22sp"
-                app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+                app:layout_constraintBottom_toTopOf="@+id/edNumero"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/contactosm"
-                app:layout_constraintTop_toBottomOf="@+id/contactosm" />
+                app:layout_constraintStart_toStartOf="@+id/edNombre"
+                app:layout_constraintTop_toBottomOf="@+id/edNombre" />
 
             <EditText
-                android:id="@+id/editTextNumber"
+                android:id="@+id/edNumero"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -143,7 +143,7 @@
                 android:layout_marginTop="4dp"
                 android:backgroundTint="@color/design_default_color_error"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+                app:layout_constraintTop_toBottomOf="@+id/edNumero"
                 app:srcCompat="@android:drawable/ic_menu_delete" />
 
             <ImageButton
@@ -154,7 +154,7 @@
                 android:layout_marginEnd="2dp"
                 android:backgroundTint="@android:color/holo_green_light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+                app:layout_constraintTop_toBottomOf="@+id/edNumero"
                 app:srcCompat="@android:drawable/ic_menu_save" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

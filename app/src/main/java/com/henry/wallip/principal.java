@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -32,6 +33,7 @@ public class principal extends AppCompatActivity {
     int contador = 0;
     String numero_llamar;
     TextView cantidad;
+    String name,nume;
 
     final ArrayList<listaElements> elements = new ArrayList<>();
 
@@ -47,6 +49,7 @@ public class principal extends AppCompatActivity {
     };
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,15 +78,26 @@ public class principal extends AppCompatActivity {
             @Override
             public void onPlay(int position) {
                 numero_llamar = elements.get(position).getNumero();
-                Toast.makeText(getApplicationContext(), ""+numero_llamar, Toast.LENGTH_SHORT).show();
-                llamar(numero_llamar);
+                name = elements.get(position).getNombre();
+                pasar(name,numero_llamar);
             }
-
         });
 
         cantidad = findViewById(R.id.idCantidad);
         int can = elements.size();
         cantidad.setText("Cant.\n"+can);
+    }
+
+    private void pasar(String nom,String num) {
+        name = nom;
+        nume = num;
+
+        Intent i = new Intent(this, editar_contacto.class);
+        i.putExtra("d1",name);
+        i.putExtra("d2",nume);
+
+        startActivity(i);
+
     }
 
     public void metodo_timmer(){
@@ -102,22 +116,4 @@ public class principal extends AppCompatActivity {
         Intent i = new Intent(this, registrar.class);
         startActivity(i);
     }
-    public void editar(View view){
-        Intent i = new Intent(this, editar_contacto.class);
-        startActivity(i);
-    }
-
-    /*public void llamar(View view) {
-        llamar();
-    }*/
-
-    public void llamar(String num){
-        try {
-            startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel: "+num)));
-        }
-        catch (Exception e){
-            Toast.makeText(getApplicationContext(), "No se puede llamar : "+e.toString(), Toast.LENGTH_LONG).show();
-        }
-    }
-
 }
