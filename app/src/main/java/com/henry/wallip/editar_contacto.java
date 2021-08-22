@@ -11,8 +11,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 public class editar_contacto extends AppCompatActivity {
 
     TextView destinario;
@@ -28,11 +26,9 @@ public class editar_contacto extends AppCompatActivity {
         setContentView(R.layout.activity_editar_contacto);
 
         destinario = findViewById(R.id.para);
-        cnt = findViewById(R.id.edNombre);
+        cnt = findViewById(R.id.edNombreAdd);
         mensaje = findViewById(R.id.mensaje);
-        number = findViewById(R.id.edNumero);
-
-        destinario.setText("Para: "+cnt.getText());
+        number = findViewById(R.id.edNumeroAdd);
 
         recibirDator();
     }
@@ -44,6 +40,8 @@ public class editar_contacto extends AppCompatActivity {
 
         cnt.setText(nm);
         number.setText(nmr);
+
+        destinario.setText("Para: "+cnt.getText());
     }
 
     public void borrar(View view){

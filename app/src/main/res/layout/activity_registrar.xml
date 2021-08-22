@@ -68,7 +68,7 @@
                 app:srcCompat="@drawable/camara" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/cargar"
                 android:layout_width="127dp"
                 android:layout_height="61dp"
                 android:layout_marginTop="8dp"
@@ -95,7 +95,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/edNombre"
+                android:id="@+id/edNombreAdd"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
@@ -116,13 +116,13 @@
                 android:layout_marginTop="6dp"
                 android:text="@string/nmr"
                 android:textSize="22sp"
-                app:layout_constraintBottom_toTopOf="@+id/edNumero"
+                app:layout_constraintBottom_toTopOf="@+id/edNumeroAdd"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/edNombre"
-                app:layout_constraintTop_toBottomOf="@+id/edNombre" />
+                app:layout_constraintStart_toStartOf="@+id/edNombreAdd"
+                app:layout_constraintTop_toBottomOf="@+id/edNombreAdd" />
 
             <EditText
-                android:id="@+id/edNumero"
+                android:id="@+id/edNumeroAdd"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -130,31 +130,31 @@
                 android:inputType="number"
                 android:minHeight="48dp"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/imageButton2"
+                app:layout_constraintBottom_toTopOf="@+id/limpiar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toEndOf="@+id/imageView5"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/limpiar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:backgroundTint="@color/design_default_color_error"
-                app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-                app:layout_constraintTop_toBottomOf="@+id/edNumero"
+                app:layout_constraintEnd_toStartOf="@+id/guarda"
+                app:layout_constraintTop_toBottomOf="@+id/edNumeroAdd"
                 app:srcCompat="@android:drawable/ic_menu_delete" />
 
             <ImageButton
-                android:id="@+id/imageButton4"
+                android:id="@+id/guarda"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="2dp"
                 android:backgroundTint="@android:color/holo_green_light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edNumero"
+                app:layout_constraintTop_toBottomOf="@+id/edNumeroAdd"
                 app:srcCompat="@android:drawable/ic_menu_save" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

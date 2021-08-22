@@ -1,12 +1,14 @@
 package com.henry.wallip;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,6 +36,7 @@ public class principal extends AppCompatActivity {
     String numero_llamar;
     TextView cantidad;
     String name,nume;
+    DBHelper DB;
 
     final ArrayList<listaElements> elements = new ArrayList<>();
 
@@ -55,15 +58,23 @@ public class principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         imagen = (ImageView) findViewById(R.id.usuarioImg);
+        DB = new DBHelper(this);
 
         runnable.run();
 
         //Toast.makeText(getApplicationContext(), ""+contador, Toast.LENGTH_SHORT).show();
 
-        elements.add(new listaElements("Henry","58757294"));
-        elements.add(new listaElements("James","58709462"));
-        elements.add(new listaElements("Eliezer","81388181"));
-        elements.add(new listaElements("Faruck","58726730"));
+
+
+        Cursor result = DB.obtenerDatos();
+        if(result.getCount()==0){
+            Toast.makeText(getApplicationContext(),"No hay datos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //StringBuffer buffer = new StringBuffer();
+        while (result.moveToNext()){
+            elements.add(new listaElements(""+result.getString(0),""+result.getString(1), ""+result.getString(2), ""+result.getString(3)));
+        }
 
         mRecyclerView = findViewById(R.id.listaRecycle);
         mRecyclerView.setHasFixedSize(true);
