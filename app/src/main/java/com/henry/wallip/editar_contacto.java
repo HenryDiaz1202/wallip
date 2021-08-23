@@ -1,7 +1,10 @@
 package com.henry.wallip;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,7 +21,10 @@ public class editar_contacto extends AppCompatActivity {
     TextView mensaje;
     ImageButton vaciar;
     TextView number;
-
+    String ids;
+    ImageButton borrar;
+    DBHelper DB;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +32,52 @@ public class editar_contacto extends AppCompatActivity {
         setContentView(R.layout.activity_editar_contacto);
 
         destinario = findViewById(R.id.para);
-        cnt = findViewById(R.id.edNombreAdd);
+        cnt = findViewById(R.id.edNombre);
         mensaje = findViewById(R.id.mensaje);
-        number = findViewById(R.id.edNumeroAdd);
+        number = findViewById(R.id.edNumeroA);
+        borrar = findViewById(R.id.limpiar);
+        DB = new DBHelper(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        borrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder.setMessage("Se eliminará de forma permanente\n¿ Eliminar ?").setCancelable(false)
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Boolean borrado = DB.deleteContacto(cnt.getText().toString());
+                                if(borrado==true){
+                                    Toast.makeText(getApplicationContext(), "Eliminado correctamente.", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(), "Error al eliminar.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.setTitle("Eliminando contacto");
+                alert.show();
+
+            }
+        });
 
         recibirDator();
     }
 
     private void recibirDator() {
         Bundle extras = getIntent().getExtras();
+        ids = extras.getString("d0");
         String nm = extras.getString("d1");
         String nmr = extras.getString("d2");
+
 
         cnt.setText(nm);
         number.setText(nmr);

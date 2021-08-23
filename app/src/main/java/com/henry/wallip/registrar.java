@@ -1,9 +1,7 @@
 package com.henry.wallip;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -24,8 +22,8 @@ public class registrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
-        ednombre = findViewById(R.id.edNombreAdd);
-        ednumero = findViewById(R.id.edNumeroAdd);
+        ednombre = findViewById(R.id.edNombre);
+        ednumero = findViewById(R.id.edNumeroA);
         insertar = findViewById(R.id.guarda);
         ver = findViewById(R.id.limpiar);
         DB = new DBHelper(this);

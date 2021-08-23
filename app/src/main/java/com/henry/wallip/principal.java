@@ -35,7 +35,7 @@ public class principal extends AppCompatActivity {
     int contador = 0;
     String numero_llamar;
     TextView cantidad;
-    String name,nume;
+    String name,idd;
     DBHelper DB;
 
     final ArrayList<listaElements> elements = new ArrayList<>();
@@ -68,7 +68,7 @@ public class principal extends AppCompatActivity {
 
         Cursor result = DB.obtenerDatos();
         if(result.getCount()==0){
-            Toast.makeText(getApplicationContext(),"No hay datos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"No hay contactos registrados", Toast.LENGTH_SHORT).show();
             return;
         }
         //StringBuffer buffer = new StringBuffer();
@@ -88,9 +88,10 @@ public class principal extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new listAdaptador.OnItemClickListener() {
             @Override
             public void onPlay(int position) {
+                idd = elements.get(position).getID();
                 numero_llamar = elements.get(position).getNumero();
                 name = elements.get(position).getNombre();
-                pasar(name,numero_llamar);
+                pasar(idd,name,numero_llamar);
             }
         });
 
@@ -99,13 +100,12 @@ public class principal extends AppCompatActivity {
         cantidad.setText("Cant.\n"+can);
     }
 
-    private void pasar(String nom,String num) {
-        name = nom;
-        nume = num;
+    private void pasar(String id,String nom,String num) {
 
         Intent i = new Intent(this, editar_contacto.class);
-        i.putExtra("d1",name);
-        i.putExtra("d2",nume);
+        i.putExtra("d0",id);
+        i.putExtra("d1",nom);
+        i.putExtra("d2",num);
 
         startActivity(i);
 

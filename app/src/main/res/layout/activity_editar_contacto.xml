@@ -95,7 +95,7 @@ tools:context=".editar_contacto">
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/edNombreAdd"
+                android:id="@+id/edNombre"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
@@ -116,13 +116,13 @@ tools:context=".editar_contacto">
                 android:layout_marginTop="6dp"
                 android:text="@string/nmr"
                 android:textSize="22sp"
-                app:layout_constraintBottom_toTopOf="@+id/edNumeroAdd"
+                app:layout_constraintBottom_toTopOf="@+id/edNumeroA"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/edNombreAdd"
-                app:layout_constraintTop_toBottomOf="@+id/edNombreAdd" />
+                app:layout_constraintStart_toStartOf="@+id/edNombre"
+                app:layout_constraintTop_toBottomOf="@+id/edNombre" />
 
             <EditText
-                android:id="@+id/edNumeroAdd"
+                android:id="@+id/edNumeroA"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -143,7 +143,7 @@ tools:context=".editar_contacto">
                 android:layout_marginTop="4dp"
                 android:backgroundTint="@color/design_default_color_error"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-                app:layout_constraintTop_toBottomOf="@+id/edNumeroAdd"
+                app:layout_constraintTop_toBottomOf="@+id/edNumeroA"
                 app:srcCompat="@android:drawable/ic_menu_delete" />
 
             <ImageButton
@@ -154,7 +154,7 @@ tools:context=".editar_contacto">
                 android:backgroundTint="@color/light_blue_900"
                 android:onClick="llamar"
                 app:layout_constraintEnd_toStartOf="@+id/guarda"
-                app:layout_constraintTop_toBottomOf="@+id/edNumeroAdd"
+                app:layout_constraintTop_toBottomOf="@+id/edNumeroA"
                 app:srcCompat="@android:drawable/sym_call_outgoing" />
 
             <ImageButton
@@ -165,7 +165,7 @@ tools:context=".editar_contacto">
                 android:layout_marginEnd="2dp"
                 android:backgroundTint="@android:color/holo_green_light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edNumeroAdd"
+                app:layout_constraintTop_toBottomOf="@+id/edNumeroA"
                 app:srcCompat="@android:drawable/ic_menu_save" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
