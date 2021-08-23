@@ -62,6 +62,7 @@
             app:srcCompat="@drawable/user" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaRecycle"
         android:layout_width="0dp"

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,8 +21,9 @@ public class editar_contacto extends AppCompatActivity {
     TextView cnt;
     TextView mensaje;
     ImageButton vaciar;
+    ImageView ver;
     TextView number;
-    String ids,foto;
+    String ids,foto,ftt;
     ImageButton borrar,actualizar;
     DBHelper DB;
     AlertDialog.Builder builder;
@@ -38,6 +40,7 @@ public class editar_contacto extends AppCompatActivity {
         borrar = findViewById(R.id.limpiar);
         actualizar = findViewById(R.id.guarda);
         DB = new DBHelper(this);
+
         foto = "local gallery";
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -92,6 +95,8 @@ public class editar_contacto extends AppCompatActivity {
         ids = extras.getString("d0");
         String nm = extras.getString("d1");
         String nmr = extras.getString("d2");
+        ftt = extras.getString("d3");
+
 
 
         cnt.setText(nm);

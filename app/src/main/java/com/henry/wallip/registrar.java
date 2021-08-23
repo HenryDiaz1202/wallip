@@ -23,6 +23,8 @@ public class registrar extends AppCompatActivity {
     DBHelper DB;
     String id,nombre,numero,foto;
     ImageView fotoGallery;
+    Uri path;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class registrar extends AppCompatActivity {
 
                 if(inserted==true){
                     Toast.makeText(getApplicationContext(), "Insertado correctamente.", Toast.LENGTH_SHORT).show();
+                    limpiar();
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "Error al insertar.", Toast.LENGTH_SHORT).show();
@@ -76,12 +79,18 @@ public class registrar extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK){
-            Uri path = data.getData();
+            path = data.getData();
+            Toast.makeText(getApplicationContext(), ""+path, Toast.LENGTH_SHORT).show();
             fotoGallery.setImageURI(path);
         }
     }
 
     public void upandup(View view) {
         cargarImagen();
+    }
+
+    public void limpiar(){
+        ednombre.setText("");
+        ednumero.setText("");
     }
 }

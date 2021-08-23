@@ -80,7 +80,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor obtenerDatos(){
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("SELECT * FROM contactosdata", null);
+        Cursor cursor = DB.rawQuery("SELECT * FROM contactosdata ORDER BY nombre", null);
         return  cursor;
     }
 

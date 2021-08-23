@@ -36,7 +36,7 @@ public class principal extends AppCompatActivity implements SearchView.OnQueryTe
     int contador = 0;
     String numero_llamar;
     TextView cantidad;
-    String name,idd;
+    String name,idd,fot;
     DBHelper DB;
     SearchView buscar;
 
@@ -59,6 +59,8 @@ public class principal extends AppCompatActivity implements SearchView.OnQueryTe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+
 
         imagen = (ImageView) findViewById(R.id.usuarioImg);
         DB = new DBHelper(this);
@@ -92,6 +94,7 @@ public class principal extends AppCompatActivity implements SearchView.OnQueryTe
                 idd = elements.get(position).getID();
                 numero_llamar = elements.get(position).getNumero();
                 name = elements.get(position).getNombre();
+                //fot = elements.get(position).getFoto();
                 pasar(idd,name,numero_llamar);
             }
         });
@@ -109,6 +112,7 @@ public class principal extends AppCompatActivity implements SearchView.OnQueryTe
         i.putExtra("d0",id);
         i.putExtra("d1",nom);
         i.putExtra("d2",num);
+        //i.putExtra("d3",fot);
 
         startActivity(i);
 
