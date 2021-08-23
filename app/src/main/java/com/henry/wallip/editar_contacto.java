@@ -21,8 +21,8 @@ public class editar_contacto extends AppCompatActivity {
     TextView mensaje;
     ImageButton vaciar;
     TextView number;
-    String ids;
-    ImageButton borrar;
+    String ids,foto;
+    ImageButton borrar,actualizar;
     DBHelper DB;
     AlertDialog.Builder builder;
 
@@ -36,7 +36,9 @@ public class editar_contacto extends AppCompatActivity {
         mensaje = findViewById(R.id.mensaje);
         number = findViewById(R.id.edNumeroA);
         borrar = findViewById(R.id.limpiar);
+        actualizar = findViewById(R.id.guarda);
         DB = new DBHelper(this);
+        foto = "local gallery";
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         borrar.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +48,7 @@ public class editar_contacto extends AppCompatActivity {
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Boolean borrado = DB.deleteContacto(cnt.getText().toString());
+                                Boolean borrado = DB.deleteContacto(ids);
                                 if(borrado==true){
                                     Toast.makeText(getApplicationContext(), "Eliminado correctamente.", Toast.LENGTH_SHORT).show();
                                     finish();
@@ -69,9 +71,22 @@ public class editar_contacto extends AppCompatActivity {
             }
         });
 
+        actualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Boolean editado = DB.updateContacto(ids,cnt.getText().toString(),number.getText().toString(),foto);
+                if(editado==true){
+                    Toast.makeText(getApplicationContext(), "Actualizado correctamente.", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Error al actualizar.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         recibirDator();
     }
-
     private void recibirDator() {
         Bundle extras = getIntent().getExtras();
         ids = extras.getString("d0");

@@ -57,6 +57,7 @@ public class principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
         imagen = (ImageView) findViewById(R.id.usuarioImg);
         DB = new DBHelper(this);
 
@@ -71,7 +72,6 @@ public class principal extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"No hay contactos registrados", Toast.LENGTH_SHORT).show();
             return;
         }
-        //StringBuffer buffer = new StringBuffer();
         while (result.moveToNext()){
             elements.add(new listaElements(""+result.getString(0),""+result.getString(1), ""+result.getString(2), ""+result.getString(3)));
         }
