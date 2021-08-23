@@ -1,11 +1,17 @@
 package com.henry.wallip;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class registrar extends AppCompatActivity {
@@ -16,6 +22,7 @@ public class registrar extends AppCompatActivity {
     ImageButton ver;
     DBHelper DB;
     String id,nombre,numero,foto;
+    ImageView fotoGallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,7 @@ public class registrar extends AppCompatActivity {
         insertar = findViewById(R.id.guarda);
         ver = findViewById(R.id.limpiar);
         DB = new DBHelper(this);
-
+        fotoGallery = (ImageView) findViewById(R.id.idImagen);
 
 
         insertar.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +63,25 @@ public class registrar extends AppCompatActivity {
                 ednumero.setText("");
             }
         });
+
     }
 
+    public void cargarImagen(){
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/");
+        startActivityForResult(intent.createChooser(intent, "Seleccione la aplicación"),10);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            Uri path = data.getData();
+            fotoGallery.setImageURI(path);
+        }
+    }
+
+    public void upandup(View view) {
+        cargarImagen();
+    }
 }

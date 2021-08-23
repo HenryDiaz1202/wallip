@@ -59,7 +59,7 @@ tools:context=".editar_contacto">
             android:layout_height="252dp">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/idImagen"
                 android:layout_width="125dp"
                 android:layout_height="147dp"
                 android:layout_marginTop="4dp"
@@ -79,7 +79,7 @@ tools:context=".editar_contacto">
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                app:layout_constraintTop_toBottomOf="@+id/idImagen"
                 app:layout_constraintVertical_bias="0.666" />
 
             <TextView
@@ -91,7 +91,7 @@ tools:context=".editar_contacto">
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.321"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/idImagen"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
@@ -106,7 +106,7 @@ tools:context=".editar_contacto">
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/textView5"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/idImagen"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
@@ -133,7 +133,7 @@ tools:context=".editar_contacto">
                 app:layout_constraintBottom_toTopOf="@+id/limpiar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.507"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/idImagen"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <ImageButton
