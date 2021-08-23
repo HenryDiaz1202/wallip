@@ -83,42 +83,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <EditText
-            android:id="@+id/buscar"
-            android:layout_width="308dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="4dp"
-            android:drawableLeft="@android:drawable/ic_search_category_default"
-            android:drawableTint="#D79DFF00"
-            android:drawableTintMode="src_in"
-            android:drawingCacheQuality="high"
-            android:elegantTextHeight="false"
-            android:elevation="@android:dimen/notification_large_icon_height"
-            android:ems="10"
-            android:hint="Buscar contacto ---"
-            android:inputType="textPersonName"
-            android:lineSpacingExtra="1sp"
-            android:singleLine="false"
-            android:textColor="#FFFFFF"
-            android:textColorHighlight="#B33838"
-            android:textColorHint="#7A7A76"
-            android:textColorLink="#615F5F"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.478" />
-
         <TextView
             android:id="@+id/idCantidad"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginStart="1dp"
             android:gravity="center|center_horizontal"
             android:text="000"
             android:textColor="#D57C0D"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buscar"
+            app:layout_constraintStart_toEndOf="@+id/srBuscar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <SearchView
+            android:id="@+id/srBuscar"
+            android:layout_width="306dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/idCantidad"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

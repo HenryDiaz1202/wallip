@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class principal extends AppCompatActivity {
+public class principal extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     ImageView imagen;
     int contador = 0;
@@ -37,6 +38,7 @@ public class principal extends AppCompatActivity {
     TextView cantidad;
     String name,idd;
     DBHelper DB;
+    SearchView buscar;
 
     final ArrayList<listaElements> elements = new ArrayList<>();
 
@@ -60,12 +62,11 @@ public class principal extends AppCompatActivity {
 
         imagen = (ImageView) findViewById(R.id.usuarioImg);
         DB = new DBHelper(this);
+        buscar = findViewById(R.id.srBuscar);
+
+
 
         runnable.run();
-
-        //Toast.makeText(getApplicationContext(), ""+contador, Toast.LENGTH_SHORT).show();
-
-
 
         Cursor result = DB.obtenerDatos();
         if(result.getCount()==0){
@@ -98,6 +99,8 @@ public class principal extends AppCompatActivity {
         cantidad = findViewById(R.id.idCantidad);
         int can = elements.size();
         cantidad.setText("Cant.\n"+can);
+
+        buscar.setOnQueryTextListener(this);
     }
 
     private void pasar(String id,String nom,String num) {
@@ -126,5 +129,16 @@ public class principal extends AppCompatActivity {
     public void registrar(View view){
         Intent i = new Intent(this, registrar.class);
         startActivity(i);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        mAdapter.filtrado(s);
+        return false;
     }
 }

@@ -11,10 +11,15 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class listAdaptador extends RecyclerView.Adapter<listAdaptador.listAdaptadorViewHolder> {
 
     private ArrayList<listaElements> mListe;
+    private ArrayList<listaElements> listaOriginal;
+
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener{
@@ -55,6 +60,8 @@ public class listAdaptador extends RecyclerView.Adapter<listAdaptador.listAdapta
 
     public listAdaptador(ArrayList<listaElements> listeElements){
         mListe = listeElements;
+        listaOriginal = new ArrayList<>();
+        listaOriginal.addAll(mListe);
     }
 
     @Override
@@ -62,6 +69,29 @@ public class listAdaptador extends RecyclerView.Adapter<listAdaptador.listAdapta
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_contactos, parent, false);
         listAdaptadorViewHolder lsh = new listAdaptadorViewHolder(v, mListener);
         return lsh;
+    }
+
+    public void filtrado(String txtBuscar){
+        int longitud = txtBuscar.length();
+        if(longitud==0){
+            mListe.clear();
+            mListe.addAll(listaOriginal);
+        }
+        else{
+           if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N){
+               List<listaElements> collection = mListe.stream().filter(i -> i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase()))
+                       .collect(Collectors.toList());
+               mListe.clear();
+               mListe.addAll(collection);
+           }else{
+               for(listaElements le: listaOriginal){
+                   if(le.getNombre().toLowerCase().contains(txtBuscar.toLowerCase())){
+                       mListe.add(le);
+                   }
+               }
+           }
+           notifyDataSetChanged();
+        }
     }
 
     @Override
