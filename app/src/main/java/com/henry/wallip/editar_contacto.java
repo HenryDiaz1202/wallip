@@ -131,6 +131,10 @@ public class editar_contacto extends AppCompatActivity {
         }
     }
 
+    public void GETMESSAGE(){
+
+    }
+
     public void llamar(View view){
         String persona = number.getText().toString();
         try {
