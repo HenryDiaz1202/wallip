@@ -66,8 +66,6 @@ public class principal extends AppCompatActivity implements SearchView.OnQueryTe
         DB = new DBHelper(this);
         buscar = findViewById(R.id.srBuscar);
 
-
-
         runnable.run();
 
         Cursor result = DB.obtenerDatos();

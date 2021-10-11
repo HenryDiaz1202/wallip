@@ -4,6 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -40,6 +42,8 @@ public class editar_contacto extends AppCompatActivity {
         borrar = findViewById(R.id.limpiar);
         actualizar = findViewById(R.id.guarda);
         DB = new DBHelper(this);
+
+        RecibirSMS rcbitSMS = new RecibirSMS();
 
         foto = "local gallery";
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -131,7 +135,7 @@ public class editar_contacto extends AppCompatActivity {
         }
     }
 
-    public void GETMESSAGE(){
+    public void Recibir(Context context, Intent intent){
 
     }
 

@@ -16,13 +16,23 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase DB) {
         DB.execSQL("CREATE TABLE contactosdata(id TEXT PRIMARY KEY,nombre TEXT, numero TEXT, foto TEXT)");
-
+        //DB.execSQL("CREATE TABLE mensajeria(idms integer PRIMARY KEY autoincrement,numero TEXT,mensaje TEXT, foreign key (numero) references contactosdata(numero) )");
+        DB.execSQL("CREATE TABLE mensajeria(numero TEXT,mensaje TEXT, foreign key (numero) references contactosdata(numero) )");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase DB, int i, int i1) {
         DB.execSQL("DROP TABLE IF EXISTS contactosdata");
+        DB.execSQL("DROP TABLE IF EXISTS mensajeria");
     }
+
+    /*public Boolean guardarMensaje(String numero,String mensaje){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("numero",numero);
+        contentValues.put("mensaje");
+    }*/
 
     public Boolean insertarContacto(String id,String nombre,String numero, String foto){
         SQLiteDatabase DB = this.getWritableDatabase();
